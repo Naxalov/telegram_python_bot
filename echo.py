@@ -2,7 +2,8 @@ from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 
 
 def hi(update, context):
-    print(update.message.text)
+    print(context.bot.getMe())
+    # print(update.message.text)
 
 
 updater = Updater('1324065101:AAFC8E5163G83YMG5MJ_X9ay1tvnmZ_6Mds')
