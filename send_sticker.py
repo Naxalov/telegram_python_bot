@@ -3,11 +3,13 @@ import os
 import telegram
 
 TOKEN = os.environ['TOKEN']
-sticker_id = 'AgACAgIAAxkBAAICR1-BhdNuCnrC45xLHbJuv7sif1gsAAJNrzEbh8IJSAQPMhcKQq4xxSOlli4AAwEAAwIAA3gAA5dzAgABGwQ'
+file_id_sticker = 'CAACAgIAAxkBAAICH1-BM7_EsqCc2nBSFjaDkpWoI6UsAAIUAANOXNIpeTENMSnHY0MbBA'
+
 bot = telegram.Bot(TOKEN)
+
 # file_photo = open('logo.png', 'rb')
 # print(type(file_photo))
-bot.sendPhoto(
+bot.sendSticker(
     chat_id='86775091',
     sticker=sticker_id,
 )
