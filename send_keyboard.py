@@ -1,4 +1,6 @@
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, ReplyKeyboardMarkup
+from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
+from telegram import ReplyKeyboardMarkup
+
 import os
 
 TOKEN = os.environ['TOKEN']
