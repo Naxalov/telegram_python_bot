@@ -7,9 +7,9 @@ file_id_sticker = 'CAACAgIAAxkBAAICH1-BM7_EsqCc2nBSFjaDkpWoI6UsAAIUAANOXNIpeTENM
 
 bot = telegram.Bot(TOKEN)
 
-# file_photo = open('logo.png', 'rb')
+file_sticker = open('logo.webp', 'rb')
 # print(type(file_photo))
 bot.sendSticker(
     chat_id='86775091',
-    sticker=sticker_id,
+    sticker=file_sticker,
 )
