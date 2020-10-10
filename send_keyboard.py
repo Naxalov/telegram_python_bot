@@ -20,7 +20,6 @@ def start(update, context):
     )
     reply_markup = ReplyKeyboardMarkup(
         [
-            ['Button1'],
             [button]
         ]
     )
@@ -41,11 +40,16 @@ def help_bot(update, context):
     bot.sendMessage(chat_id, 'This is just echo bot.')
 
 
-def button1(update, context):
+def get_contact(update, context):
     bot = context.bot
     text = update.message.text
     chat_id = update.message.chat.id
-    bot.sendMessage(chat_id, 'Just Button 11111')
+    contact = update.message.contact
+    phone = contact.phone_number
+    firsr_name = contact.first_name
+    last_name = contact.last_name
+    txt = f'Phone:{phone}\nFirst name:{firsr_name}\nLast Name:{last_name}'
+    print(txt)
 
 
 updater = Updater(TOKEN)
@@ -56,8 +60,8 @@ updater.dispatcher.add_handler(CommandHandler('start', start))
 
 updater.dispatcher.add_handler(MessageHandler(Filters.text, hi))
 updater.dispatcher.add_handler(
-    MessageHandler(Filters.text('Button1'),
-                   button1))
+    MessageHandler(Filters.contact,
+                   get_contact))
 
 updater.start_polling()
 updater.idle()
