@@ -49,12 +49,18 @@ def codeschool(update, context):
     )
 
     query = update.callback_query
+    text = query.message.text
+    count = ''
+    for i in text:
+        if i.isdigit():
+            count += i
+
+    count = int(count)
     count += 1
+    print(count)
     query.edit_message_text(f'New Text:{count}', reply_markup=reply_markup)
     data = query.data
     query.answer('GOOD!')
-
-    print(data)
 
 
 updater = Updater(TOKEN)

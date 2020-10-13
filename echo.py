@@ -6,6 +6,7 @@ def hi(update, context):
     bot = context.bot
     text = update.message.text
     chat_id = update.message.chat.id
+    
     bot.sendMessage(chat_id, text)
 
 
