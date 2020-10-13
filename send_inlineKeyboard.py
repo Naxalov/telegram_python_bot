@@ -23,7 +23,7 @@ def start(update, context):
     chat_id = update.message.chat.id
     bot.sendMessage(
         chat_id=chat_id,
-        text='Our Telegram Channel',
+        text='New Text: 0',
         reply_markup=reply_markup
     )
 
@@ -36,9 +36,24 @@ def help_bot(update, context):
 
 
 def codeschool(update, context):
+
+    button = InlineKeyboardButton(
+        text='CodeSchoolUz',
+        callback_data=345
+    )
+
+    reply_markup = InlineKeyboardMarkup(
+        inline_keyboard=[
+            [button]
+        ]
+    )
+
     query = update.callback_query
+    count += 1
+    query.edit_message_text(f'New Text:{count}', reply_markup=reply_markup)
     data = query.data
     query.answer('GOOD!')
+
     print(data)
 
 
