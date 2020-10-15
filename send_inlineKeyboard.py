@@ -60,7 +60,10 @@ def codeschool(update, context):
     print(count)
     query.edit_message_text(f'New Text:{count}', reply_markup=reply_markup)
     data = query.data
-    query.answer('GOOD!')
+    query.answer(
+        text='😀 - Good\n😁Yaxshi\n😂Hello\n🤣 total',
+        show_alert=True
+    )
 
 
 updater = Updater(TOKEN)
