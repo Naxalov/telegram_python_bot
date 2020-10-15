@@ -1,12 +1,14 @@
 from telegram.ext import Updater, CommandHandler, MessageHandler, Filters
 import os
 
+TOKEN = os.environ['TOKEN']
+
 
 def hi(update, context):
     bot = context.bot
     text = update.message.text
     chat_id = update.message.chat.id
-    
+
     bot.sendMessage(chat_id, text)
 
 
@@ -21,19 +23,17 @@ def help_bot(update, context):
     bot = context.bot
     text = update.message.text
     chat_id = update.message.chat.id
-    bot.sendMessage(chat_id, 'This is just echo bot.')
+    # bot.sendMessage(chat_id, 'This is just echo bot.')
+    bot.reply_text()
 
 
-# updater = Updater('1324065101:AAFC8E5163G83YMG5MJ_X9ay1tvnmZ_6Mds')
+updater = Updater(TOKEN)
 
-# updater.dispatcher.add_handler(CommandHandler('help', help_bot))
-# updater.dispatcher.add_handler(CommandHandler('start', start))
+updater.dispatcher.add_handler(CommandHandler('help', help_bot))
+updater.dispatcher.add_handler(CommandHandler('start', start))
 
-# updater.dispatcher.add_handler(MessageHandler(Filters.text, hi))
+updater.dispatcher.add_handler(MessageHandler(Filters.text, hi))
 
 
-# updater.start_polling()
-# updater.idle()
-
-TOKEN = os.environ['TOKEN']
-print(TOKEN)
+updater.start_polling()
+updater.idle()
