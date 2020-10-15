@@ -8,8 +8,8 @@ def hi(update, context):
     bot = context.bot
     text = update.message.text
     chat_id = update.message.chat.id
-
-    bot.sendMessage(chat_id, text)
+    # bot.sendMessage(chat_id, text)
+    update.message.reply_text(text)
 
 
 def start(update, context):
@@ -24,7 +24,6 @@ def help_bot(update, context):
     text = update.message.text
     chat_id = update.message.chat.id
     # bot.sendMessage(chat_id, 'This is just echo bot.')
-    bot.reply_text()
 
 
 updater = Updater(TOKEN)
